@@ -3,7 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const app = express();
 const weatherAlertsRoutes = require('./routes/weatherAlerts');
-
+const locationsRoutes = require('./routes/locations');
 
 // Process the secrets/config vars in .env
 require('dotenv').config();
@@ -27,7 +27,14 @@ app.use(require('./middleware/checkToken'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
 
+// Weather Alerts and Locations API Routes
 app.use('/api/weatherAlerts', require('./routes/weatherAlerts'));
+
+// Locations API Routes
+app.use('/api/locations', require('./routes/locations'));
+
+
+
 
 
 
