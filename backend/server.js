@@ -2,6 +2,8 @@ const path = require('path'); // Built into Node
 const express = require('express');
 const logger = require('morgan');
 const app = express();
+const weatherAlertsRoutes = require('./routes/weatherAlerts');
+
 
 // Process the secrets/config vars in .env
 require('dotenv').config();
@@ -24,6 +26,9 @@ app.use(require('./middleware/checkToken'));
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
+
+app.use('/api/weatherAlerts', require('./routes/weatherAlerts'));
+
 
 
 // Use a "catch-all" route to deliver the frontend's production index.html
