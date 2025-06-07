@@ -33,7 +33,11 @@ app.use('/api/weatherAlerts', require('./routes/weatherAlerts'));
 // Locations API Routes
 app.use('/api/locations', require('./routes/locations'));
 
+// Tornado Events API Routes
+app.use('/api/tornadoEvents', require('./routes/tornadoEvents'));
 
+
+//
 
 
 
