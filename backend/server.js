@@ -37,7 +37,8 @@ app.use('/api/locations', require('./routes/locations'));
 app.use('/api/tornadoEvents', require('./routes/tornadoEvents'));
 
 
-//
+// User Reports API Routes
+app.use('/api/userReports', require('./routes/userReports'));
 
 
 

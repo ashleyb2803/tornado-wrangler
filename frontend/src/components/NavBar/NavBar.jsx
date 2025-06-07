@@ -11,7 +11,7 @@ export default function NavBar({ user, setUser }) {
     // The <Link> that was clicked will navigate to "/"
   }
 
-  return (
+  eturn (
     <nav className="NavBar">
       <NavLink to="/">Home</NavLink>
       &nbsp; | &nbsp;
@@ -22,6 +22,14 @@ export default function NavBar({ user, setUser }) {
           </NavLink>
           &nbsp; | &nbsp;
           <NavLink to="/posts/new">New Post</NavLink>
+          &nbsp; | &nbsp;
+          <NavLink to="/weather-alerts">Weather Alerts</NavLink>
+          &nbsp; | &nbsp;
+          <NavLink to="/tornado-events">Tornado Events</NavLink>
+          &nbsp; | &nbsp;
+          <NavLink to="/locations">Locations</NavLink>
+          &nbsp; | &nbsp;
+          <NavLink to="/user-reports">User Reports</NavLink>
           &nbsp; | &nbsp;
           <Link to="/" onClick={handleLogOut}>Log Out</Link>
           <span>Welcome, {user.name}</span>
