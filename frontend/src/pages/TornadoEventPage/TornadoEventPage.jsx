@@ -26,12 +26,12 @@ export default function TornadoEventPage() {
       <h1>Tornado Events</h1>
       <ul>
         {events.map(event => (
-          <li key={event._id}>
-            <strong>{event.name}</strong> - {event.date}
-            <br />
-            Location: {event.location?.name || 'Unknown'}
-            <br />
-            Severity: {event.severity}
+          <li key={event._id} style={{ marginBottom: '1.5em' }}>
+            <strong>Date:</strong> {new Date(event.date).toLocaleString()}<br />
+            <strong>Location:</strong> {event.location?.name || event.location || 'Unknown'}<br />
+            <strong>Intensity:</strong> {event.intensity}<br />
+            <strong>Description:</strong> {event.description || 'No description'}<br />
+            <strong>Reported By:</strong> {event.reportedBy?.name || event.reportedBy || 'Unknown'}
           </li>
         ))}
       </ul>
