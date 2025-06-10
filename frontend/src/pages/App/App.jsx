@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router';
 import { getUser } from '../../services/authService';
 import HomePage from '../HomePage/HomePage';
 import TornadoEventsPage from '../TornadoEventPage/TornadoEventPage';
+import WeatherAlertPage from '../WeatherAlertPage/WeatherAlertPage'; // <-- Add this import
 import PostListPage from '../PostListPage/PostListPage';
 import NewPostPage from '../NewPostPage/NewPostPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
@@ -22,6 +23,8 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/posts" element={<PostListPage />} />
             <Route path="/posts/new" element={<NewPostPage />} />
+            <Route path="/tornado-events" element={<TornadoEventsPage />} /> {/* Add this */}
+            <Route path="/weather-alerts" element={<WeatherAlertPage />} />   {/* Add this */}
             <Route path="*" element={null} />
           </Routes>
         ) : (
@@ -29,12 +32,12 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
             <Route path="/login" element={<LogInPage setUser={setUser} />} />
+            <Route path="/tornado-events" element={<TornadoEventsPage />} /> {/* Add this */}
+            <Route path="/weather-alerts" element={<WeatherAlertPage />} />   {/* Add this */}
             <Route path="*" element={null} />
-             <Route path="/tornado-events" element={<TornadoEventsPage />} />
           </Routes>
         )}
       </section>
     </main>
   );
 }
-

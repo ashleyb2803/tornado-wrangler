@@ -9,7 +9,7 @@ export default function TornadoEventPage() {
     async function fetchEvents() {
       try {
         const data = await tornadoEventService.getAll();
-        setEvents(data);
+        setEvents(Array.isArray(data) ? data : data.events || []);
       } catch (err) {
         console.error('Failed to fetch tornado events:', err);
       } finally {
