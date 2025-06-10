@@ -1,17 +1,17 @@
-import { NavLink, Link, useNavigate } from 'react-router';
+import { NavLink, Link } from 'react-router';
 import { logOut } from '../../services/authService';
 import './NavBar.css';
 
 export default function NavBar({ user, setUser }) {
-  const navigate = useNavigate();
-
+  
   function handleLogOut() {
     logOut();
     setUser(null);
+      
     // The <Link> that was clicked will navigate to "/"
   }
 
-  eturn (
+  return (
     <nav className="NavBar">
       <NavLink to="/">Home</NavLink>
       &nbsp; | &nbsp;

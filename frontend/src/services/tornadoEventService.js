@@ -31,3 +31,14 @@ export const deleteTornadoEvent = async (id) => {
   const res = await axios.delete(`${API_URL}/${id}`);
   return res.data;
 };
+
+// Export the service as an object
+const tornadoEventService = {
+  getAll: getAllTornadoEvents,
+  getById: getTornadoEventById,
+  create: createTornadoEvent,
+  update: updateTornadoEvent,
+  delete: deleteTornadoEvent,
+};    
+
+export default tornadoEventService;

@@ -23,9 +23,15 @@ exports.getAlertById = async (req, res) => {
 
 // Create a new weather alert
 exports.createAlert = async (req, res) => {
+  const longitude = -97.0892;
+  const latitude = 32.7357;
+  const state = 'TX';
   try {
-    const alert = await WeatherAlert.create(req.body);
-    res.status(201).json(alert);
+    const weatherApiResponse = await fetch(`https://api.weather.gov/alerts/active?area=${state}`);
+    const weatherData = await weatherApiResponse.json();
+    console.log(weatherData.features[0].properties);
+    //const alert = await WeatherAlert.create(req.body);
+    res.status(201).json(weatherData);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
