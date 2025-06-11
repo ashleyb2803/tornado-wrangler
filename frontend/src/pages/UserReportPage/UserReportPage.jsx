@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import userReportService from '../../services/userReportService';
+import * as userReportService from '../../services/userReportService';
 
 export default function UserReportPage() {
   const [reports, setReports] = useState([]);

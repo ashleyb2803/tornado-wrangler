@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import tornadoEventService from '../../services/tornadoEventService';
+import * as tornadoEventService from '../../services/tornadoEventService';
 
 export default function TornadoEventPage() {
   const [events, setEvents] = useState([]);

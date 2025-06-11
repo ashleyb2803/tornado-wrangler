@@ -40,7 +40,8 @@ app.use('/api/tornadoEvents', require('./routes/tornadoEvents'));
 // User Reports API Routes
 app.use('/api/userReports', require('./routes/userReports'));
 
-
+// noaaAlerts API Routes
+app.use('/api/noaaAlerts', require('./routes/noaaAlerts'));
 
 
 // Use a "catch-all" route to deliver the frontend's production index.html

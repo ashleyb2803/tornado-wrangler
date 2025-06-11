@@ -5,6 +5,7 @@ import HomePage from '../HomePage/HomePage';
 import TornadoEventsPage from '../TornadoEventPage/TornadoEventPage';
 import WeatherAlertPage from '../WeatherAlertPage/WeatherAlertPage'; 
 import LocationPage from '../LocationPage/LocationPage'; 
+import UserReportPage from '../UserReportPage/UserReportPage';
 import PostListPage from '../PostListPage/PostListPage';
 import NewPostPage from '../NewPostPage/NewPostPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/tornado-events" element={<TornadoEventsPage />} /> {/* Add this */}
             <Route path="/weather-alerts" element={<WeatherAlertPage />} />   {/* Add this */}
              <Route path="/locations" element={<LocationPage />} />
+             <Route path="/user-reports" element={<UserReportPage />} />
             <Route path="*" element={null} />
           </Routes>
         ) : (
@@ -37,6 +39,7 @@ export default function App() {
             <Route path="/tornado-events" element={<TornadoEventsPage />} /> {/* Add this */}
             <Route path="/weather-alerts" element={<WeatherAlertPage />} />   {/* Add this */}
             <Route path="/locations" element={<LocationPage />} />
+            <Route path="/user-reports" element={<UserReportPage />} />
             <Route path="*" element={null} />
           </Routes>
         )}

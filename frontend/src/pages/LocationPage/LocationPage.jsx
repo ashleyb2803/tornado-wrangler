@@ -62,7 +62,7 @@ function handleFindLocation() {
 
   async function handleAddLocation(e) {
     e.preventDefault();
-    const newLocation = await locationService.create({
+    const newLocation = await locationService.createLocation({
       city,
       state,
       latitude: parseFloat(latitude),

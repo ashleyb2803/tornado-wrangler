@@ -20,11 +20,6 @@ export const createTornadoEvent = async (eventData) => {
   return res.data;
 };
 
-// Update a tornado event
-export const updateTornadoEvent = async (id, eventData) => {
-  const res = await axios.put(`${API_URL}/${id}`, eventData);
-  return res.data;
-};
 
 // Delete a tornado event
 export const deleteTornadoEvent = async (id) => {
@@ -37,7 +32,6 @@ const tornadoEventService = {
   getAll: getAllTornadoEvents,
   getById: getTornadoEventById,
   create: createTornadoEvent,
-  update: updateTornadoEvent,
   delete: deleteTornadoEvent,
 };    
 
