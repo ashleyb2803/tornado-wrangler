@@ -1,4 +1,4 @@
-const TornadoEvent = require('../models/tornadoEvents');
+const TornadoEvent = require('../models/tornadoEvent');
 
 // Get all tornado events
 exports.getAllTornadoEvents = async (req, res) => {
@@ -23,6 +23,7 @@ exports.getTornadoEventById = async (req, res) => {
 
 // Create a new tornado event
 exports.createTornadoEvent = async (req, res) => {
+  console.log(req.body);
   try {
     const event = await TornadoEvent.create(req.body);
     res.status(201).json(event);
@@ -52,3 +53,4 @@ exports.deleteTornadoEvent = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+

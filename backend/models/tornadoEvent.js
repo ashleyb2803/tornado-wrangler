@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const tornadoEventSchema = new Schema({
-    date: { type: Date, required: true },
+    date: { type: String, required: true },
     location: { type: Schema.Types.ObjectId, ref: 'Location', required: true },
     intensity: { type: String, enum: ['EF0', 'EF1', 'EF2', 'EF3', 'EF4', 'EF5'], required: true },
     description: { type: String },

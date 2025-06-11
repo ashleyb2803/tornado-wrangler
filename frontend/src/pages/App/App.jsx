@@ -34,6 +34,7 @@ export default function App() {
             <Route path="/login" element={<LogInPage setUser={setUser} />} />
             <Route path="/tornado-events" element={<TornadoEventsPage />} /> {/* Add this */}
             <Route path="/weather-alerts" element={<WeatherAlertPage />} />   {/* Add this */}
+            <Route path="/locations" element={<LocationPage />} />
             <Route path="*" element={null} />
           </Routes>
         )}

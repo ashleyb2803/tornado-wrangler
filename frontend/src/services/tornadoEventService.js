@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/api/tornado-events';
+const API_URL = '/api/tornadoEvents';
 
 // Get all tornado events
 export const getAllTornadoEvents = async () => {
