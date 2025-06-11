@@ -1,3 +1,5 @@
+@import 'leaflet/dist/leaflet.css';
+
 .App {
   display: grid;
   grid-template-rows: auto auto;
