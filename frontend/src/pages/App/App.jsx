@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router';
 import { getUser } from '../../services/authService';
 import HomePage from '../HomePage/HomePage';
 import TornadoEventsPage from '../TornadoEventPage/TornadoEventPage';
-import WeatherAlertPage from '../WeatherAlertPage/WeatherAlertPage'; // <-- Add this import
+import WeatherAlertPage from '../WeatherAlertPage/WeatherAlertPage'; 
+import LocationPage from '../LocationPage/LocationPage'; 
 import PostListPage from '../PostListPage/PostListPage';
 import NewPostPage from '../NewPostPage/NewPostPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/posts/new" element={<NewPostPage />} />
             <Route path="/tornado-events" element={<TornadoEventsPage />} /> {/* Add this */}
             <Route path="/weather-alerts" element={<WeatherAlertPage />} />   {/* Add this */}
+             <Route path="/locations" element={<LocationPage />} />
             <Route path="*" element={null} />
           </Routes>
         ) : (

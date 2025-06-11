@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_URL = '/api/locations';
 
+
 // Get all locations
 export const getAllLocations = async () => {
   const res = await axios.get(API_URL);

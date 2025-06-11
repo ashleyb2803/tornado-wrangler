@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import locationService from '../../services/locationService';
+import { useState, useEffect } from 'react';
+import * as locationService from '../../services/locationService';
+
 
 export default function LocationPage() {
   const [locations, setLocations] = useState([]);
