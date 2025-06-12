@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as tornadoEventService from '../../services/tornadoEventService';
+import './TornadoEventPage.css';
 
 export default function TornadoEventPage() {
   const [events, setEvents] = useState([]);
@@ -38,7 +39,7 @@ export default function TornadoEventPage() {
   if (loading) return <div>Loading tornado events...</div>;
 
   return (
-    <div>
+    <div className="tornado-event-page">
       <h1>Tornado Events</h1>
       <form onSubmit={handleCreate}>
         <input

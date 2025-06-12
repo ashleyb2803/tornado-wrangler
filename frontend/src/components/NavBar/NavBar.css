@@ -11,20 +11,21 @@
     border-radius: 0.8vmin;
     padding: 0.5vmin 1.5vmin;
     text-decoration: none;
-    color: #1a1a1a;
+    color: #f6f1f1;
   }
 
   a:hover {
-    background-color: #1a1a1a;
+    background-color: #f77503;
     color: whitesmoke;
   }
 
   a.active {
-    background-color: rebeccapurple;
+    background-color: rgb(247, 139, 23);
     color: whitesmoke;
   }
 
   span {
-    color: rgb(108, 9, 87);
+    background-color: rgb(247, 120, 23);
+    color: rgb(250, 249, 248);
   }
 }

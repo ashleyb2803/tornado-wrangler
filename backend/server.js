@@ -4,6 +4,9 @@ const logger = require('morgan');
 const app = express();
 const weatherAlertsRoutes = require('./routes/weatherAlerts');
 const locationsRoutes = require('./routes/locations');
+const noaaAlertsRouter = require('./routes/noaaAlerts');
+const tornadoEventsRoutes = require('./routes/tornadoEvents');
+const userReportsRoutes = require('./routes/userReports');
 
 // Process the secrets/config vars in .env
 require('dotenv').config();
@@ -28,20 +31,20 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
 
 // Weather Alerts and Locations API Routes
-app.use('/api/weatherAlerts', require('./routes/weatherAlerts'));
+app.use('/api/weatherAlerts', weatherAlertsRoutes);
 
 // Locations API Routes
-app.use('/api/locations', require('./routes/locations'));
+app.use('/api/locations', locationsRoutes);
 
 // Tornado Events API Routes
-app.use('/api/tornadoEvents', require('./routes/tornadoEvents'));
+app.use('/api/tornadoEvents', tornadoEventsRoutes);
 
 
 // User Reports API Routes
-app.use('/api/userReports', require('./routes/userReports'));
+app.use('/api/userReports', userReportsRoutes);
 
 // noaaAlerts API Routes
-app.use('/api/noaaAlerts', require('./routes/noaaAlerts'));
+app.use('/api/noaa-alerts', noaaAlertsRouter);
 
 
 // Use a "catch-all" route to deliver the frontend's production index.html

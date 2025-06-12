@@ -1,24 +1,39 @@
 import { useEffect, useState } from 'react';
 import * as noaaAlertService from '../../services/noaaAlertService';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import './WeatherAlertPage.css'; // Create this CSS file
+import './WeatherAlertPage.css';
 
 export default function WeatherAlertPage() {
-  const [alerts, setAlerts] = useState([]);
+  const [pastWeekTornadoes, setPastWeekTornadoes] = useState([]);
+  const [currentTornadoes, setCurrentTornadoes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Dummy data for tornado details (replace with real data/fetch)
-  const pastWeekTornadoes = [{ id: 1, name: "Tornado A", date: "2025-06-05" }];
-  const currentTornadoes = [{ id: 2, name: "Tornado B", date: "2025-06-11" }];
-
   useEffect(() => {
-    async function fetchAlerts() {
+    async function fetchTornadoes() {
       setLoading(true);
-      const data = await noaaAlertService.getAll();
-      setAlerts(data.features || []);
+      const [pastWeekData, currentData] = await Promise.all([
+        noaaAlertService.getPastWeekTornadoes(),
+        noaaAlertService.getCurrentTornadoes()
+      ]);
+      setPastWeekTornadoes(
+        (pastWeekData.features || []).map(alert => ({
+          id: alert.id,
+          name: alert.properties.event,
+          date: alert.properties.onset ? alert.properties.onset.slice(0, 10) : 'N/A',
+          area: alert.properties.areaDesc,
+        }))
+      );
+      setCurrentTornadoes(
+        (currentData.features || []).map(alert => ({
+          id: alert.id,
+          name: alert.properties.event,
+          date: alert.properties.onset ? alert.properties.onset.slice(0, 10) : 'N/A',
+          area: alert.properties.areaDesc,
+        }))
+      );
       setLoading(false);
     }
-    fetchAlerts();
+    fetchTornadoes();
   }, []);
 
   if (loading) return <div>Loading...</div>;
@@ -29,15 +44,19 @@ export default function WeatherAlertPage() {
       <aside className="sidebar">
         <h3>Past Week Tornadoes</h3>
         <ul>
+          {pastWeekTornadoes.length === 0 && <li>No tornadoes reported in the past week.</li>}
           {pastWeekTornadoes.map(t => (
-            <li key={t.id}>{t.name} - {t.date}</li>
+            <li key={t.id}>
+              {t.name} - {t.date}
+              <br />
+              <small>{t.area}</small>
+            </li>
           ))}
         </ul>
       </aside>
-
       {/* Center: Map */}
       <main className="map-section">
-        <MapContainer center={[39.8283, -98.5795]} zoom={4} style={{ height: "400px", width: "100%" }}>
+        <MapContainer center={[39.8283, -98.5795]} zoom={4} style={{ height: "100%", width: "100%" }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
@@ -47,13 +66,17 @@ export default function WeatherAlertPage() {
           </Marker>
         </MapContainer>
       </main>
-
       {/* Right: Current tornadoes */}
       <aside className="sidebar">
         <h3>Current Tornadoes</h3>
         <ul>
+          {currentTornadoes.length === 0 && <li>No active tornadoes right now.</li>}
           {currentTornadoes.map(t => (
-            <li key={t.id}>{t.name} - {t.date}</li>
+            <li key={t.id}>
+              {t.name} - {t.date}
+              <br />
+              <small>{t.area}</small>
+            </li>
           ))}
         </ul>
       </aside>

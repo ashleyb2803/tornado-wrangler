@@ -1,0 +1,78 @@
+home-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.about, .tornado-info {
+  margin-bottom: 2rem;
+}
+.tornado-info ul {
+  list-style: disc inside;
+}
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+.cta-button {
+  background: #f26914;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.cta-button:hover {
+  background: #120ff6;
+}
+
+
+
+.tornado-quiz {
+  background: #faf8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+.tornado-quiz form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.quiz-result {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #f17808;
+}
+
+.blur-box {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+
+body {
+ background-image: url('/images/TWbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.hero-image {
+  border-radius: 16px; /* Adjust the value for more or less roundness */
+}
