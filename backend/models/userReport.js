@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
-const UserReportSchema = new mongoose.Schema({ /* schema fields */ });
+
 
 const commentSchema = new mongoose.Schema({
   text: String,
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   createdAt: { type: Date, default: Date.now }
 });
 
 const userReportSchema = new mongoose.Schema({
   title: String,
   description: String,
-  //user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  //date: { type: Date, default: Date.now },
-  //comments: [commentSchema]
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  date: { type: Date, default: Date.now },
+  comments: [commentSchema]
 });
 
 module.exports = mongoose.models.UserReport || mongoose.model('UserReport', userReportSchema);

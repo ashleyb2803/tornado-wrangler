@@ -53,7 +53,7 @@ async function handleSubmit(e) {
   return (
     <div>
       <h1>User Tornado Reports</h1>
-     // Use similar input types and layout as TornadoEventPage
+     
 <form onSubmit={handleSubmit} style={{ marginBottom: '2em' }}>
   <input
     type="text"
