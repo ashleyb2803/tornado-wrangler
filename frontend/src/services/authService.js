@@ -10,6 +10,7 @@ export async function signUp(userData) {
 
 export async function logIn(credentials) {
   const token = await sendRequest(`${BASE_URL}/login`, 'POST', credentials);
+  console.log(token);
   localStorage.setItem('token', token);
   return getUser();
 }

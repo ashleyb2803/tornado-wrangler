@@ -24,6 +24,12 @@ exports.getUserReportById = async (req, res) => {
 // Create a new user report
 exports.createUserReport = async (req, res) => {
   try {
+    
+    //console.log(req.user); // Log the user object to see if it's being set correctly
+    req.body.date =  Date.now(); // Ensure date is a Date object
+   // req.body.user = req.user._id; // Set the user ID from the authenticated user
+    console.log(typeof req.body.date);
+    console.log(req.body); 
     const report = await UserReport.create(req.body);
     res.status(201).json(report);
   } catch (err) {

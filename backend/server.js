@@ -41,7 +41,7 @@ app.use('/api/tornadoEvents', tornadoEventsRoutes);
 
 
 // User Reports API Routes
-app.use('/api/userReports', userReportsRoutes);
+app.use('/api/user-reports', userReportsRoutes);
 
 // noaaAlerts API Routes
 app.use('/api/noaa-alerts', noaaAlertsRouter);

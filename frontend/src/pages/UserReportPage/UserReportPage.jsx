@@ -53,24 +53,29 @@ async function handleSubmit(e) {
   return (
     <div>
       <h1>User Tornado Reports</h1>
-      <form onSubmit={handleSubmit} style={{ marginBottom: '2em' }}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={form.title}
-          onChange={e => setForm({ ...form, title: e.target.value })}
-          required
-        />
-        <textarea
-          placeholder="Description"
-          value={form.description}
-          onChange={e => setForm({ ...form, description: e.target.value })}
-          required
-        />
-        <button type="submit">Report a Tornado Event</button>
-      </form>
+     // Use similar input types and layout as TornadoEventPage
+<form onSubmit={handleSubmit} style={{ marginBottom: '2em' }}>
+  <input
+    type="text"
+    placeholder="Title"
+    value={form.title}
+    onChange={e => setForm({ ...form, title: e.target.value })}
+    required
+  />
+  <input
+    type="datetime-local"
+    value={form.date || ''}
+    onChange={e => setForm({ ...form, date: e.target.value })}
+  />
+  <textarea
+    placeholder="Description"
+    value={form.description}
+    onChange={e => setForm({ ...form, description: e.target.value })}
+    required
+  />
+  <button type="submit">Report a Tornado Event</button>
+</form>
       <ul>
-        
           {(Array.isArray(reports) ? reports : []).map(report => (
           <li key={report._id} style={{ marginBottom: '2em' }}>
             <strong>{report.title}</strong> - {report.date}
