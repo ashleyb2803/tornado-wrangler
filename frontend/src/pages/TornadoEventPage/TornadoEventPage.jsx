@@ -1,47 +1,29 @@
-import { useEffect, useState } from 'react';
-import * as userReportService from '../../services/userReportService';
-import './TornadoEventPage.css';
+// components/TornadoEventForm.jsx
+import { useState } from 'react';
+import axios from 'axios';
 
-export default function TornadoEventPage() {
-  const [reports, setReports] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); 
+export default function TornadoEventForm() {
+  const [form, setForm] = useState({ title: '', description: '', date: '' });
 
-  useEffect(() => {
-    fetchReports();
-  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  async function fetchReports() {
-    setLoading(true);
-    setError(null); // <-- Reset error
-    try {
-      const data = await userReportService.getAllUserReports();
-      console.log('Fetched reports:', data); 
-      setReports(Array.isArray(data) ? data : data?.reports || []);
-    } catch (err) {
-      setError('Failed to fetch user reports.');
-      console.error('Failed to fetch user reports:', err);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  if (loading) return <div>Loading tornado reports...</div>;
-  if (error) return <div style={{ color: 'red' }}>{error}</div>;
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+      const { latitude, longitude } = pos.coords;
+      const res = await axios.post('/api/events', {
+        ...form,
+        coordinates: [longitude, latitude]
+      }, { withCredentials: true });
+      console.log('Event Created:', res.data);
+    });
+  };
 
   return (
-    <div className="tornado-event-page">
-      <h1>Current Tornado Reports</h1>
-      <ul>
-        {reports.map(report => (
-          <li key={report._id} style={{ marginBottom: '1.5em' }}>
-            <strong>Date:</strong> {new Date(report.date).toLocaleString()}<br />
-            <strong>Location:</strong> {report.location || 'Unknown'}<br />
-            <strong>Intensity:</strong> {report.intensity || 'Unknown'}<br />
-            <strong>Description:</strong> {report.description || 'No description'}<br />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="Title" />
+      <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Description" />
+      <input type="datetime-local" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} />
+      <button type="submit">Report Tornado</button>
+    </form>
   );
 }

@@ -11,9 +11,9 @@ const getAuthHeader = () => {
 // Left Side
 export async function getPastWeekTornadoes() {
     try{
-  const oneWeekAgo = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString();
+  const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
   const res = await axios.get(
-    `/api/noaa-alerts?event=Tornado&status=actual&start=${oneWeekAgo}`
+    `/api/noaa-alerts?event=Tornado%20Warning&status=actual&start=${oneWeekAgo}`
   );
   console.log('Fetched past week tornadoes:', res);
   return res.data;

@@ -1,38 +1,43 @@
 import axios from 'axios';
 
-const API_URL = '/api/tornadoEvents';
+const API = '/api/events'; // adjust this if your backend route is different
+const COMMENTS_API = '/api/comments';
 
-// Get all tornado events
-export const getAllTornadoEvents = async () => {
-  const res = await axios.get(API_URL);
+const getAllEvents = async () => {
+  const res = await axios.get(API);
   return res.data;
 };
 
-// Get a single tornado event by ID
-export const getTornadoEventById = async (id) => {
-  const res = await axios.get(`${API_URL}/${id}`);
+const createEvent = async (data) => {
+  const res = await axios.post(API, data, { withCredentials: true });
   return res.data;
 };
 
-// Create a new tornado event
-export const createTornadoEvent = async (eventData) => {
-  const res = await axios.post(API_URL, eventData);
+const createComment = async (eventId, text) => {
+  const res = await axios.post(`${COMMENTS_API}/${eventId}`, { text }, { withCredentials: true });
   return res.data;
 };
 
-
-// Delete a tornado event
-export const deleteTornadoEvent = async (id) => {
-  const res = await axios.delete(`${API_URL}/${id}`);
+const updateComment = async (commentId, text) => {
+  const res = await axios.put(`${COMMENTS_API}/${commentId}`, { text }, { withCredentials: true });
   return res.data;
 };
 
-// Export the service as an object
-const tornadoEventService = {
-  getAll: getAllTornadoEvents,
-  getById: getTornadoEventById,
-  create: createTornadoEvent,
-  delete: deleteTornadoEvent,
-};    
+const deleteComment = async (commentId) => {
+  const res = await axios.delete(`${COMMENTS_API}/${commentId}`, { withCredentials: true });
+  return res.data;
+};
 
-export default tornadoEventService;
+const getCommentsByEvent = async (eventId) => {
+  const res = await axios.get(`${COMMENTS_API}/event/${eventId}`);
+  return res.data;
+};
+
+export default {
+  getAllEvents,
+  createEvent,
+  createComment,
+  updateComment,
+  deleteComment,
+  getCommentsByEvent,
+};

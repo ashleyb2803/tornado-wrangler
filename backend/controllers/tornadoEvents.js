@@ -1,56 +1,70 @@
-const TornadoEvent = require('../models/tornadoEvent');
-
-// Get all tornado events
-exports.getAllTornadoEvents = async (req, res) => {
-  try {
-    const events = await TornadoEvent.find().populate('location');
-    res.json(events);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-// Get a single tornado event by ID
-exports.getTornadoEventById = async (req, res) => {
-  try {
-    const event = await TornadoEvent.findById(req.params.id).populate('location');
-    if (!event) return res.status(404).json({ error: 'Tornado event not found' });
-    res.json(event);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
+const TornadoEvent = require('../models/TornadoEvent');
+const mongoose = require('mongoose');
 
 // Create a new tornado event
-exports.createTornadoEvent = async (req, res) => {
-  console.log(req.body);
+const createTornadoEvent = async (req, res) => {
   try {
-    const event = await TornadoEvent.create(req.body);
-    res.status(201).json(event);
+    const { title, description, date, location, coordinates } = req.body;
+
+  const newEvent = new TornadoEvent({
+  title,
+  description,
+  date,
+  location: {
+    type: 'Point',
+    coordinates, 
+  },
+  user: req.user._id,
+});
+
+    const savedEvent = await newEvent.save();
+    res.status(201).json(savedEvent);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ message: 'Failed to create event', error: err.message });
   }
 };
 
-// Update a tornado event
-exports.updateTornadoEvent = async (req, res) => {
+// Get all tornado events
+const getAllTornadoEvents = async (req, res) => {
   try {
-    const event = await TornadoEvent.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!event) return res.status(404).json({ error: 'Tornado event not found' });
-    res.json(event);
+    const events = await TornadoEvent.find().populate('user', 'username');
+    res.status(200).json(events);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ message: 'Failed to get events', error: err.message });
+  }
+};
+
+// Get a single event by ID
+const getTornadoEventById = async (req, res) => {
+  try {
+    const event = await TornadoEvent.findById(req.params.id).populate('user', 'username');
+    if (!event) return res.status(404).json({ message: 'Event not found' });
+    res.status(200).json(event);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to get event', error: err.message });
   }
 };
 
 // Delete a tornado event
-exports.deleteTornadoEvent = async (req, res) => {
+const deleteTornadoEvent = async (req, res) => {
   try {
-    const event = await TornadoEvent.findByIdAndDelete(req.params.id);
-    if (!event) return res.status(404).json({ error: 'Tornado event not found' });
-    res.json({ message: 'Tornado event deleted' });
+    const event = await TornadoEvent.findById(req.params.id);
+    if (!event) return res.status(404).json({ message: 'Event not found' });
+
+    if (event.user.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized' });
+    }
+
+    await event.deleteOne();
+    res.status(200).json({ message: 'Event deleted' });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ message: 'Failed to delete event', error: err.message });
   }
 };
 
+module.exports = {
+  createTornadoEvent,
+  getAllTornadoEvents,
+  getTornadoEventById,
+  deleteTornadoEvent,
+};

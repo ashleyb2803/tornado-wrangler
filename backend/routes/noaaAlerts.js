@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 router.get('/current-tornadoes', async (req, res) => {
   try {
     // NOAA API for currently active tornado alerts
-    const url = 'https://api.weather.gov/alerts/active?event=Tornado&status=actual';
+    const url = 'https://api.weather.gov/alerts/active?event=Tornado%20Warning&status=actual';
 
     const response = await axios.get(url, {
       headers: { 'User-Agent': 'TornadoWranglerApp (your@email.com)' }

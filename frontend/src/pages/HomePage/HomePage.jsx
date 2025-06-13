@@ -142,9 +142,9 @@ export default function HomePage() {
           </div>
         )}
       </section>
-      <section className="cta">
-        <a href="/alerts" className="cta-button">View Current Alerts</a>
-      </section>
+   <section className="cta">
+  <a href="/weather-alerts" className="cta-button">View Current Alerts</a>
+</section>
     </div>
   );
 }
