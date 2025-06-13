@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userReportSchema = new Schema({
+const weatherAlertSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     tornadoEvent: { type: Schema.Types.ObjectId, ref: 'TornadoEvent' },
     location: { type: Schema.Types.ObjectId, ref: 'Location', required: true },
@@ -9,7 +9,7 @@ const userReportSchema = new Schema({
     reportedAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('UserReport', userReportSchema);
+module.exports = mongoose.model('WeatherAlert', weatherAlertSchema);
 
 
 // This schema defines a weather alert with fields for title, description, severity, issued date, expiration date, and location.

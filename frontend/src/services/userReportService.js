@@ -36,3 +36,9 @@ export const deleteUserReport = async (id) => {
   const res = await axios.delete(`${API_URL}/${id}`);
   return res.data;
 };
+
+// Add a comment to a user report
+export const addCommentToReport = async (reportId, commentData) => {
+  const res = await axios.post(`${API_URL}/${reportId}/comments`, commentData, { headers: getAuthHeader() });
+  return res.data;
+};

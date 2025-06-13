@@ -51,7 +51,7 @@ async function handleSubmit(e) {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div style={{ color: 'white' }}>
       <h1>User Tornado Reports</h1>
      
 <form onSubmit={handleSubmit} style={{ marginBottom: '2em' }}>

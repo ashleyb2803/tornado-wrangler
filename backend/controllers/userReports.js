@@ -39,6 +39,32 @@ exports.createUserReport = async (req, res) => {
   }
 };
 
+// Add a comment to a user report
+exports.addCommentToReport = async (req, res) => {
+  try {
+    const report = await UserReport.findById(req.params.id);
+    if (!report) return res.status(404).json({ error: 'User report not found' });
+
+    // Build the comment object
+    const comment = {
+      text: req.body.text,
+      user: req.user ? req.user._id : undefined, // If using authentication
+      date: new Date()
+    };
+
+    report.comments.push(comment);
+    await report.save();
+
+    // Populate user field in comments for response
+    await report.populate('comments.user');
+    res.json(report);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+
+
 // Update a user report
 exports.updateUserReport = async (req, res) => {
   try {

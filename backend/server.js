@@ -28,7 +28,7 @@ app.use(require('./middleware/checkToken'));
 
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/posts', require('./routes/posts'));
+
 
 // Weather Alerts and Locations API Routes
 app.use('/api/weatherAlerts', weatherAlertsRoutes);

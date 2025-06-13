@@ -6,8 +6,7 @@ import TornadoEventsPage from '../TornadoEventPage/TornadoEventPage';
 import WeatherAlertPage from '../WeatherAlertPage/WeatherAlertPage'; 
 import LocationPage from '../LocationPage/LocationPage'; 
 import UserReportPage from '../UserReportPage/UserReportPage';
-import PostListPage from '../PostListPage/PostListPage';
-import NewPostPage from '../NewPostPage/NewPostPage';
+
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -23,8 +22,7 @@ export default function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/posts" element={<PostListPage />} />
-            <Route path="/posts/new" element={<NewPostPage />} />
+            
             <Route path="/tornado-events" element={<TornadoEventsPage />} /> {/* Add this */}
             <Route path="/weather-alerts" element={<WeatherAlertPage />} />   {/* Add this */}
              <Route path="/locations" element={<LocationPage />} />

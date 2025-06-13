@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import * as userReportService from '../../services/userReportService'; // <-- update import
+import * as userReportService from '../../services/userReportService';
 import './TornadoEventPage.css';
 
 export default function TornadoEventPage() {
   const [reports, setReports] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     fetchReports();
@@ -12,10 +13,13 @@ export default function TornadoEventPage() {
 
   async function fetchReports() {
     setLoading(true);
+    setError(null); // <-- Reset error
     try {
-      const data = await userReportService.getAll();
-      setReports(Array.isArray(data) ? data : data.reports || []);
+      const data = await userReportService.getAllUserReports();
+      console.log('Fetched reports:', data); 
+      setReports(Array.isArray(data) ? data : data?.reports || []);
     } catch (err) {
+      setError('Failed to fetch user reports.');
       console.error('Failed to fetch user reports:', err);
     } finally {
       setLoading(false);
@@ -23,6 +27,7 @@ export default function TornadoEventPage() {
   }
 
   if (loading) return <div>Loading tornado reports...</div>;
+  if (error) return <div style={{ color: 'red' }}>{error}</div>;
 
   return (
     <div className="tornado-event-page">

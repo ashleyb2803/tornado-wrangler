@@ -15,7 +15,7 @@ const userReportSchema = new mongoose.Schema({
   comments: [commentSchema]
 });
 
-module.exports = mongoose.models.UserReport || mongoose.model('UserReport', userReportSchema);
+module.exports = mongoose.model('UserReport', userReportSchema);
 // This schema defines a user report that can be linked to a tornado event and a location.
 // It includes a reference to the user who made the report, the tornado event (if applicable),
 // the location of the report, a description of the report, and a timestamp for when the report was made.

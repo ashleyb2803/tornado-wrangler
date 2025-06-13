@@ -2,6 +2,18 @@ import { useEffect, useState } from 'react';
 import * as noaaAlertService from '../../services/noaaAlertService';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import './WeatherAlertPage.css';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
+import L, { icon } from 'leaflet';
+import 'leaflet-defaulticon-compatibility';
+
+
+const ICON = icon({
+  iconUrl: "/images/tornadoicon1.jpg",
+  iconSize: [32, 32],
+})
+
+
 
 export default function WeatherAlertPage() {
   const [pastWeekTornadoes, setPastWeekTornadoes] = useState([]);
@@ -61,7 +73,7 @@ export default function WeatherAlertPage() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {/* Example marker */}
-          <Marker position={[39.8283, -98.5795]}>
+          <Marker  icon={ICON} position={[39.8283, -98.5795]}>
             <Popup>Center of USA</Popup>
           </Marker>
         </MapContainer>
