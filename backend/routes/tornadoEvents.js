@@ -1,34 +1,39 @@
+// In your tornado routes file
 const express = require('express');
 const router = express.Router();
-const TornadoEvent = require('../models/TornadoEvent');
-const { authenticateUser } = require('../middleware/auth');
+const tornadoEvent = require('../models/tornadoEvent');
 
-router.post('/', authenticateUser, async (req, res) => {
+// GET all tornado events with user info
+router.get('/', async (req, res) => {
   try {
-    const { title, description, date, coordinates } = req.body;
-    const event = new TornadoEvent({
-      user: req.user.id,
-      title,
-      description,
-      date,
-      location: {
-        type: 'Point',
-        coordinates,
-      }
-    });
-    await event.save();
-    res.json(event);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const events = await tornadoEvent.find()
+      .populate('userId', 'username email') // Populate user info (adjust fields as needed)
+      .sort({ date: -1 });
+    res.json(events);
+  } catch (error) {
+    console.error('Error fetching tornado events:', error);
+    res.status(500).json({ error: 'Failed to fetch tornado events' });
   }
 });
 
-router.get('/', async (req, res) => {
+// POST route (if you want to store username when creating)
+router.post('/', async (req, res) => {
   try {
-    const events = await TornadoEvent.find().populate('user', 'username');
-    res.json(events);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const { title, description, date, coordinates, username } = req.body; // Add username from frontend
+    
+    const newTornadoEvent = new tornadoEvent({
+      title,
+      description,
+      date,
+      coordinates,
+      username // Store username directly
+    });
+    
+    const savedEvent = await newTornadoEvent.save();
+    res.status(201).json(savedEvent);
+  } catch (error) {
+    console.error('Error creating tornado event:', error);
+    res.status(500).json({ error: 'Failed to create tornado event' });
   }
 });
 

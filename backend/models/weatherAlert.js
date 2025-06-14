@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const weatherAlertSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    tornadoEvent: { type: Schema.Types.ObjectId, ref: 'TornadoEvent' },
+    tornadoEvent: { type: Schema.Types.ObjectId, ref: 'tornadoEvent' },
     location: { type: Schema.Types.ObjectId, ref: 'Location', required: true },
     description: { type: String, required: true },
     reportedAt: { type: Date, default: Date.now }
