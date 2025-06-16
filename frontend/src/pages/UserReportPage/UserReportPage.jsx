@@ -5,7 +5,7 @@ import * as userReportService from '../../services/userReportService';
 export default function UserReportPage() {
   const [reports, setReports] = useState([]);
   const [form, setForm] = useState({ title: '', description: '' });
-  const [commentForms, setCommentForms] = useState({}); // { [reportId]: commentText }
+  const [commentForms, setCommentForms] = useState({}); 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

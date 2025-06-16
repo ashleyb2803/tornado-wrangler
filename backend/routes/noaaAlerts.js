@@ -25,8 +25,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
 //current tornadoes endpoint
 router.get('/current-tornadoes', async (req, res) => {
   try {
@@ -42,5 +40,19 @@ router.get('/current-tornadoes', async (req, res) => {
   }
 });
 
+//current severe thunderstorm warnings endpoint
+router.get('/current-thunderstorms', async (req, res) => {
+  try {
+    // NOAA API for currently active severe thunderstorm warnings
+    const url = 'https://api.weather.gov/alerts/active?event=Severe%20Thunderstorm%20Warning&status=actual';
+
+    const response = await axios.get(url, {
+      headers: { 'User-Agent': 'TornadoWranglerApp (your@email.com)' }
+    });
+    res.json(response.data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch current thunderstorm alerts', details: err.message });
+  }
+});
 
 module.exports = router;
