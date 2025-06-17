@@ -80,10 +80,12 @@ export default function HomePage() {
         {/*<p>Your source for real-time tornado alerts and safety information.</p> */}
       </section>
      <section className="about blur-box">
-        <h2>About This Application</h2>
+        <h2>Welcome to Tornado Wrangler Yall</h2>
         <p>
-          Tornado Wrangler helps you stay informed about tornado activity across the United States.
-          Get up-to-date alerts, track recent tornadoes, and learn how to stay safe during severe weather.
+          Stay ahead of the storm with Tornado Wrangler, a powerful tornado tracking application designed to keep communities informed. 
+          Whether you're monitoring real-time tornado activity or sharing reports on potential storms, 
+          this platform connects users with up-to-date severe weather insights. Built for weather enthusiasts, emergency responders, and anyone preparing for severe conditions, 
+          Tornado Wrangler ensures you’re always in the know when storms roll in.
         </p>
       </section>
       <section className="about blur-box">
