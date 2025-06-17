@@ -1,0 +1,440 @@
+
+/* Main bg */
+.resources-page {
+  min-height: 100vh;
+  background-color: rgba(249, 250, 251, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1rem;
+}
+
+.resources-container {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/* Header styles */
+.resources-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.resources-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.resources-subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+/* Emergency alert */
+.emergency-alert {
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+.emergency-alert-content {
+  display: flex;
+  align-items: center;
+}
+
+.emergency-alert-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #dc2626;
+}
+
+.emergency-alert-text {
+  margin-left: 0.75rem;
+}
+
+.emergency-alert-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #991b1b;
+}
+
+.emergency-alert-description {
+  color: #b91c1c;
+  margin-top: 0.25rem;
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.card-title-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  color: #2563eb;
+}
+
+/* Emergency contacts grid */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: background-color 0.2s;
+}
+
+.contact-card:hover {
+  background-color: #f9fafb;
+}
+
+.contact-name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.contact-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+  margin: 0.5rem 0;
+}
+
+.contact-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Assistance types grid */
+.assistance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.assistance-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.assistance-icon {
+  color: #2563eb;
+  margin-top: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.assistance-title {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.assistance-description {
+  color: #6b7280;
+}
+
+/* Organizations */
+.organizations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.organization-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.organization-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.organization-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.external-link-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6b7280;
+}
+
+.organization-description {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.services-section {
+  margin-bottom: 1rem;
+}
+
+.services-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.services-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.service-tag {
+  background-color: #dbeafe;
+  color: #1e40af;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.organization-website {
+  font-size: 0.875rem;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.organization-website a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+
+
+/* Safety tips accordion */
+.safety-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.accordion-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.accordion-button:hover {
+  background-color: #f9fafb;
+}
+
+.accordion-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.accordion-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6b7280;
+}
+
+.accordion-content {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tip-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #2563eb;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.tip-text {
+  color: #374151;
+}
+
+/* Additional resources grid */
+.additional-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.resource-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resource-item {
+  color: #374151;
+}
+
+/* Footer */
+.resources-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #6b7280;
+}
+
+/* Leaflet map styles (if you're using maps) */
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.map-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Custom Leaflet popup styles */
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+}
+
+.custom-popup {
+  padding: 0.5rem;
+}
+
+.popup-title {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.popup-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .resources-page {
+    padding: 1rem 0.5rem;
+  }
+  
+  .resources-title {
+    font-size: 1.875rem;
+  }
+  
+  .resources-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .assistance-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .additional-resources-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .organization-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .services-tags {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+  
+  .emergency-alert {
+    padding: 1rem;
+  }
+  
+  .emergency-alert-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

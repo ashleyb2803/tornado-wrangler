@@ -6,7 +6,6 @@ const weatherAlertsRoutes = require('./routes/weatherAlerts');
 const locationsRoutes = require('./routes/locations');
 const noaaAlertsRouter = require('./routes/noaaAlerts');
 const tornadoEventsRoutes = require('./routes/tornadoEvents');
-const userReportsRoutes = require('./routes/userReports');
 
 
 
@@ -44,8 +43,7 @@ app.use('/api/locations', locationsRoutes);
 app.use('/api/tornadoEvents', tornadoEventsRoutes);
 
 
-// User Reports API Routes
-app.use('/api/user-reports', userReportsRoutes);
+
 
 // noaaAlerts API Routes
 app.use('/api/noaa-alerts', noaaAlertsRouter);
