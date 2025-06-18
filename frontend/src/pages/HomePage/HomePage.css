@@ -75,5 +75,196 @@ body {
 }
 
 .hero-image {
-  border-radius: 16px; /* Adjust the value for more or less roundness */
+  border-radius: 16px; 
+}
+
+
+/* ===== Media Quaries For Mobile View ===== */
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.cta-button {
+  min-height: 44px; 
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    padding: 1.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .blur-box {
+    padding: 1rem 1.5rem;
+  }
+  
+  .weather-alerts-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: 90vh;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .sidebar {
+    flex: none;
+    max-width: none;
+    min-width: auto;
+    max-height: 300px;
+    margin: 0;
+    align-self: stretch;
+    order: 1; 
+  }
+  
+  .map-section {
+    flex: none;
+    height: 60vh;
+    min-height: 400px;
+    order: 2; 
+  }
+  
+  .leaflet-container {
+    min-width: 300px;
+    min-height: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-attachment: scroll; /* Fixed backgrounds can cause issues on mobile */
+  }
+  
+  .home-container {
+    padding: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .cta-button {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+  
+  .blur-box {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+ 
+  .weather-alerts-layout {
+    padding: 0.25rem;
+    border-radius: 8px;
+    gap: 0.25rem;
+  }
+  
+  .sidebar {
+    padding: 1rem 0.75rem;
+    font-size: 0.9rem;
+    max-height: 250px;
+    border-radius: 8px;
+  }
+  
+  .sidebar h3 {
+    font-size: 1rem;
+  }
+  
+  .sidebar li {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .map-section {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  .leaflet-container {
+    border-radius: 8px;
+    min-width: 250px;
+    min-height: 250px;
+  }
+  
+
+  .alert-popup {
+    min-width: 200px;
+    max-width: 280px;
+  }
+  
+  .alert-popup h4 {
+    font-size: 14px;
+  }
+  
+  .alert-popup p {
+    font-size: 12px;
+  }
+  
+ 
+  .tornado-alert,
+  .thunderstorm-alert {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .alert-section h4 {
+    font-size: 15px;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .home-container {
+    padding: 0.75rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .weather-alerts-layout {
+    padding: 0.125rem;
+  }
+  
+  .sidebar {
+    padding: 0.75rem 0.5rem;
+    max-height: 200px;
+  }
+  
+  .map-section {
+    height: 45vh;
+    min-height: 250px;
+  }
+  
+  .leaflet-container {
+    min-width: 200px;
+    min-height: 200px;
+  }
+}
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .weather-alerts-layout {
+    flex-direction: row;
+    height: 85vh;
+  }
+  
+  .sidebar {
+    flex: 0 0 200px;
+    max-height: none;
+    order: 0;
+  }
+  
+  .map-section {
+    flex: 1;
+    height: 100%;
+    order: 1;
+  }
 }
