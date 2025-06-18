@@ -1,6 +1,6 @@
 import './HomePage.css';
 import { useState } from 'react';
-import tornadowranglercover from '../../assets/tornadowranglercover.jpg';
+import tornadowranglercover from '../../assets/TornadoWranglerCover.jpg';
 
 const quizQuestions = [
   {
