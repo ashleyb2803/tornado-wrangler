@@ -6,9 +6,14 @@
 
 
 ## Screenshots 📷
-**Home Page** <img src="public/images/Home.png" alt="screenshot">
-**Event Page** <img src="public/images/Event.png" alt="screenshot">
-**Location Page**<img src="public/images/Location.png" alt="screenshot">
+**Home Page**  
+![Home Page](public/images/Home.png)
+
+**Event Page**  
+![Event Page](public/images/Event.png)
+
+**Location Page**  
+![Location Page](public/images/Location.png)
 
 
 
